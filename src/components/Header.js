@@ -11,7 +11,12 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/images/logo.png';
 import { FaRegUserCircle } from "react-icons/fa";
 import { HiViewGridAdd } from "react-icons/hi";
+import { useContext } from 'react';
+import { AuthContext } from '../app/context';
 function Header() {
+
+    const { isLoginned, userData, logout } = useContext(AuthContext);
+
     const [shortlistedCount, setShortlistedCount] = useState(2);
     const incrementCounter = () => {
         setShortlistedCount(shortlistedCount + 1);
@@ -53,15 +58,23 @@ function Header() {
                                 <HiViewGridAdd size={25} />
                                 Shortlisted <span className='counter'>01</span>
                             </Nav.Link>
-                            <NavDropdown id="dropdown-account" title={<><FaRegUserCircle size={25} /> Account</>}>
-                                <NavDropdown.Item as={Link} to="/profile-page">Your Account</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/register">Register</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item as={Link} to="/action/3.4">
-                                    LogOut
-                                </NavDropdown.Item>
+                            <NavDropdown id="dropdown-account" title={<><FaRegUserCircle size={25} /> &nbsp; Account</>}>
+                                {isLoginned ?
+                                    <>
+                                        <NavDropdown.Item as={Link} to="/panel">Hi {userData.name},</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item onClick={logout}>
+                                            Log Out
+                                        </NavDropdown.Item>
+                                    </>
+                                    :
+                                    <>
+                                        <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/register">Register</NavDropdown.Item>
+                                    </>
+                                }
                             </NavDropdown>
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

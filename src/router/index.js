@@ -11,27 +11,72 @@ import RegisterPage from '../pages/auth/register';
 import OtpPage from '../pages/auth/otppage';
 import ShortListedPage from '../pages/shortlist';
 import ProfilePage from '../pages/profile';
-
+import WebLayout from '../layout/WebLayout';
 
 const Router = () => {
     return (
-        <Switch>
+        <>
+            <Switch>
+                <Route exact path="/login">
+                    <WebLayout>
+                        <LoginPage />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/register'>
+                    <WebLayout>
+                        <RegisterPage />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/otp'>
+                    <WebLayout>
+                        <OtpPage />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/'>
+                    <WebLayout>
+                        <Home />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/products-listing'>
+                    <WebLayout>
+                        <ProductsListingPage />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/product-details'>
+                    <WebLayout>
+                        <ProductDetailPage />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/sell-car'>
+                    <WebLayout>
+                        <SellCarPage />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/buy-car'>
+                    <WebLayout>
+                        <BuyCarPage />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/price-plan'>
+                    <WebLayout>
+                        <PricePlan />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/short-listed'>
+                    <WebLayout>
+                        <ShortListedPage />
+                    </WebLayout>
+                </Route>
+                <Route exact path='/profile-page'>
+                    <WebLayout>
+                        <ProfilePage />
+                    </WebLayout>
+                </Route>
+            </Switch>
 
-            <Route exact path='/login' component={LoginPage} />
-            <Route exact path='/register' component={RegisterPage} />
-            <Route exact path='/otp' component={OtpPage} />
-            <Route exact path='/' component={Home} />
-            <Route exact path='/products-listing' component={ProductsListingPage} />
-            <Route exact path='/product-details' component={ProductDetailPage} />
-            <Route exact path='/sell-car' component={SellCarPage} />
-            <Route exact path='/buy-car' component={BuyCarPage} />
-            <Route exact path='/price-plan' component={PricePlan} />
-            <Route exact path='/short-listed' component={ShortListedPage} />
-            <Route exact path='/profile-page' component={ProfilePage} />
-
-
-        </Switch>
+        </>
     );
 };
+
 
 export default Router;
