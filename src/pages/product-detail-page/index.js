@@ -15,6 +15,9 @@ import Icofacebook from '../../assets/icons/facebook.svg';
 import Icoinstagram from '../../assets/icons/instagram.svg';
 import Icowhatsapp from '../../assets/icons/whatsapp.svg';
 import Icotwitter from '../../assets/icons/twitter-x.svg';
+import { IoCall } from 'react-icons/io5';
+import { HiChat } from 'react-icons/hi';
+import { FaShare, FaShareSquare } from 'react-icons/fa';
 
 
 function ProductDetailPage() {
@@ -26,7 +29,7 @@ function ProductDetailPage() {
                 <div className='container-fluid'>
                     <BreadcrumbComp />
                     <Row className='g-3'>
-                        <Col lg={8}>
+                        <Col lg={7}>
                             <Card className='card-single-theme'>
                                 <ProductDetailSliderWithThumb />
                             </Card>
@@ -123,7 +126,7 @@ function ProductDetailPage() {
                                 </Card>
                             </div>
                         </Col>
-                        <Col lg={4}>
+                        <Col lg={5}>
                             <div className='sticky-top'>
                                 <Card className='card-single-theme'>
                                     <Card.Body>
@@ -173,10 +176,21 @@ function ProductDetailPage() {
                                     <footer>
                                         <Row>
                                             <Col>
-                                                <Button variant='outline-warning' className="px-lg-5 px-4 py-3 outline-btn w-100 ">Add To Cart </Button>
+                                                <Button variant='outline-warning' className=" px-2 py-3 outline-btn w-100 ">
+                                                    <IoCall size={25}/> Call Us
+                                                </Button>
+                                                <small>Mon - Fri, 9AM to 4PM.</small>
                                             </Col>
                                             <Col>
-                                                <Button variant='warning' className="px-lg-5 px-4 py-3 btn-theme w-100">Book Now</Button>
+                                                <Button variant='warning' className=" px-2 py-3 btn-theme w-100">
+                                                    <HiChat size={25} /> Chat With US
+                                                </Button>
+                                                <small>Chat with in house team.</small>
+                                            </Col>
+                                            <Col>
+                                                <Button variant='warning' className=" px-2 py-3 btn-theme w-100">
+                                                    <FaShareSquare size={25}/> Share
+                                                </Button>
                                             </Col>
                                             <Col xs={12}>
                                                 <small>Note: 100% Refundable</small>
