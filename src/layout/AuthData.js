@@ -18,17 +18,22 @@ const AuthData = () => {
         if (!apiRequestMade) {
             setApiRequestMade(true); // Set the flag to true to avoid making multiple requests
 
-            http.get("loadUser")
+            http.post("loadUser")
                 .then((response) => {
                     // console.log("response: ", response);
                     if (response.status === 200) {
-                        const user = response.data.data;
-                        login(user.token, user);
+                        if (response.data.status===1){
+                            const user = response.data.data;
+                            login(user.token, user);
+                        } else {
+                            logout("Invalid or Expired Token");
+                            // console.log("NO USER DATA");
+                        }
                     }
                 })
                 .catch((error) => {
                     console.error("Error fetching user data:", error);
-                    // logout();
+                    logout("Error fetching user data");
                 });
 
         }

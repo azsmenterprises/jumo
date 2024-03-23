@@ -37,7 +37,7 @@ function LoginPage() {
                     console.log("response: ", response);
                     if (response.status === 200) {
                         const user = response.data.data;
-                        login(user.token, user);
+                        login(user.token, user, true);
                     }
                 })
                 .catch((error) => {

@@ -4,8 +4,13 @@ import { Button, Col, Row } from 'react-bootstrap'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { axiosWithoutToken } from '../../app/auth'
+import { useContext } from 'react'
+import { AuthContext } from '../../app/context'
 
 function RegisterPage() {
+
+    const { login } = useContext(AuthContext);
+
     const http = axiosWithoutToken();
     const [roles, setRoles] = useState(null);
     const [name, setName] = useState('');
@@ -70,16 +75,17 @@ function RegisterPage() {
         return Object.keys(errors).length === 0;
     }
 
+
     const handleRegister = (e) => {
         e.preventDefault();
 
         if (validateInputs()) {
             http.post("auth", { name, mobile, email, password, user_type: role })
                 .then((response) => {
-                    console.log("response: ", response);
+                    // console.log("response: ", response);
                     if (response.status === 200) {
                         const user = response.data.data;
-                        login(user.token, user);
+                        login(user.token, user, false);
                     }
                 })
                 .catch((error) => {
