@@ -15,8 +15,6 @@ function Home() {
       <HeaderBottom />
       <HomeTopBanner />
       <BodyTypeSec />
-
-      <HowIsWorkSec />
       <section className='py-5 bg-dark-theme'>
         <div className='container'>
           <div className='section-title text-center mb-4'>
@@ -28,8 +26,6 @@ function Home() {
           </div>
         </div>
       </section>
-      
-
       <Faqs />
 
 

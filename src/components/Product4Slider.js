@@ -199,8 +199,6 @@ function Product4Slider() {
                         </footer>
                     </Card>
                 </SwiperSlide>
-
-
             </Swiper>
         </>
     )

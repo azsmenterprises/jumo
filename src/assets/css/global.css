@@ -762,8 +762,16 @@ input.dff {
    }
 }
 
-
 /* media query start */
+.accordion{
+  border: unset !important;
+}
+.accordion-button {
+  background-color: #1f2b3a !important;
+}
+.accordion-item{
+  border: unset !important;
+}
 
 @media screen and (max-width: 992px) {
   .search-bar {

@@ -9,7 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import IcoSearch from '../assets/icons/search.svg'
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/logo.png';
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaHeart, FaRegUserCircle } from "react-icons/fa";
 import { HiViewGridAdd } from "react-icons/hi";
 function Header() {
     const [shortlistedCount, setShortlistedCount] = useState(2);
@@ -19,7 +19,7 @@ function Header() {
     return (
         <header >
             <Navbar expand="lg" className="header-dark">
-                <Container>
+                <Container fluid>
                     <Navbar.Brand as={Link} to="/"><img src={Logo} width={130} alt='log' /> </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Nav>
@@ -36,11 +36,10 @@ function Header() {
                             {/* <Nav.Link as={Link} to="/">Home</Nav.Link> */}
                             <Nav.Link as={Link} to="/buy-car">Buy Car</Nav.Link>
                             <Nav.Link as={Link} to="/sell-car">Sell Car</Nav.Link>
-                            <Nav.Link as={Link} to="/price-plan">Pricing Plan</Nav.Link>
+                            <Nav.Link as={Link} to="/spareparts">Spare Parts</Nav.Link>
+                            <Nav.Link as={Link} to="/accessories">Accessories</Nav.Link>
+                            <Nav.Link as={Link} to="/price-plan"> Price Packages</Nav.Link>
                             <NavDropdown title="More" id="dropdown-more">
-                                <NavDropdown.Item as={Link} to="/action/3.2">
-                                    Your Account
-                                </NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to="/action/3.2">
                                     About US
                                 </NavDropdown.Item>
@@ -50,8 +49,7 @@ function Header() {
 
                             </NavDropdown>
                             <Nav.Link as={Link} to="/short-listed" style={{ position: 'relative' }} onClick={incrementCounter}>
-                                <HiViewGridAdd size={25} />
-                                Shortlisted <span className='counter'>01</span>
+                                <FaHeart size={25} /><span className='counter'>01</span>
                             </Nav.Link>
                             <NavDropdown id="dropdown-account" title={<><FaRegUserCircle size={25} /> Account</>}>
                                 <NavDropdown.Item as={Link} to="/profile-page">Your Account</NavDropdown.Item>
