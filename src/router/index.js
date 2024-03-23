@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Route, Routes } from 'react-router-dom';
+import { Switch, Route } from "react-router-dom";
 import Home from '../pages/home';
 import ProductsListingPage from '../pages/products-listing';
 import ProductDetailPage from '../pages/product-detail-page';
@@ -16,37 +15,22 @@ import ProfilePage from '../pages/profile';
 
 const Router = () => {
     return (
-        <Routes>
+        <Switch>
 
-            {/* auth pages start*/}
+            <Route exact path='/login' component={LoginPage} />
+            <Route exact path='/register' component={RegisterPage} />
+            <Route exact path='/otp' component={OtpPage} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/products-listing' component={ProductsListingPage} />
+            <Route exact path='/product-details' component={ProductDetailPage} />
+            <Route exact path='/sell-car' component={SellCarPage} />
+            <Route exact path='/buy-car' component={BuyCarPage} />
+            <Route exact path='/price-plan' component={PricePlan} />
+            <Route exact path='/short-listed' component={ShortListedPage} />
+            <Route exact path='/profile-page' component={ProfilePage} />
 
-            <Route exact path='/login' element={<LoginPage />}></Route>
 
-            <Route exact path='/register' element={<RegisterPage />}></Route>
-
-            <Route exact path='/otp' element={<OtpPage />}></Route>
-
-
-            {/* auth pages close */}
-
-
-           {/* others pages start */}
-            <Route exact path='/' element={<Home />}></Route>
-            <Route exact path='/products-listing' element={<ProductsListingPage />}></Route>
-            <Route exact path='/product-details' element={<ProductDetailPage />}></Route>
-            {/* sell car page  */}
-            <Route exact path='/sell-car' element={<SellCarPage />}></Route>
-            {/* buy car page  */}
-            <Route exact path='/buy-car' element={<BuyCarPage />}></Route>
-            {/*price Plan  */}
-            <Route exact path='/price-plan' element={<PricePlan />}></Route>
-              {/*shorllist page  */}
-              <Route exact path='/short-listed' element={<ShortListedPage />}></Route>
-               {/*shorllist page  */}
-               <Route exact path='/profile-page' element={<ProfilePage />}></Route>
-          {/* others pages close*/}
-
-        </Routes>
+        </Switch>
     );
 };
 
